@@ -16,7 +16,8 @@ namespace FPrueba
 
         double[] peso,talla,resultados;// Declaracion 
         string[] personas;
-        int ct=0,numero;
+        int ct=0,numero=0;
+
         
         public Form1()
         {
@@ -128,6 +129,7 @@ namespace FPrueba
             button2.Enabled = false;
             button3.Enabled = false;
             button5.Enabled = false;
+            button1.Enabled = false;
 
         }
 
@@ -195,6 +197,7 @@ namespace FPrueba
             button5.Enabled = true;
             label7.Visible = true;
             label6.Visible = true;
+            button1.Enabled = true;
             res.Visible = true;
             int condelgadezsevera=0,condelgadezmoderada=0,condelgadezaceptable=0, conadecuado=0,  consobrepeso=0 ,  conobesidad = 0, conobesidad2=0,conobesidad3=0;
             for (int i = 0; i < resultados.Length; i++)
@@ -322,7 +325,7 @@ namespace FPrueba
             numericUpDown1.Enabled = true; textBox1.Enabled = false; textBox2.Enabled = false;
             button3.Enabled = false; button2.Enabled = false; button2.BackColor = Color.Gray;
             numericUpDown1.Focus(); button4.Enabled = true; res.Visible = false; tabla.Visible = false;
-            label7.Visible = false; label3.Visible = false; label4.Visible = false; textBox3.Enabled = false;
+            label7.Visible = false; label3.Visible = false; label4.Visible = false; textBox3.Enabled = false; button1.Enabled = false;
               
         }
 
