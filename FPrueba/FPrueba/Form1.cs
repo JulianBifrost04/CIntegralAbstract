@@ -20,7 +20,7 @@ namespace FPrueba
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Probando GetHub");
-            // ESTO ES UNA PRUEBA DEL REPOSITORIO EN LINEA
+            // ESTO ES UNA PRUEBA DEL REPOSITORIO
         }
     }
 }
