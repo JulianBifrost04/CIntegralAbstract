@@ -1,4 +1,4 @@
-﻿namespace IMC_WF
+﻿namespace FPrueba
 {
     partial class Form1
     {
@@ -423,7 +423,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::IMC_WF.Properties.Resources.Clasificacion_IMC;
+            this.pictureBox1.Image = global::FPrueba.Properties.Resources.Clasificacion_IMC;
             this.pictureBox1.Location = new System.Drawing.Point(381, 15);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(474, 171);

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using Microsoft.Office.Interop.Excel;
 
-namespace IMC_WF
+namespace FPrueba
 {
     public partial class Form1 : Form
     {
