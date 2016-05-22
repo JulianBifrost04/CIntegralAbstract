@@ -36,7 +36,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(131, 83);
+            this.button1.Location = new System.Drawing.Point(76, 56);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(201, 96);
             this.button1.TabIndex = 0;
@@ -51,7 +51,8 @@
             this.ClientSize = new System.Drawing.Size(472, 262);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Form de Prueba";
             this.ResumeLayout(false);
 
         }
