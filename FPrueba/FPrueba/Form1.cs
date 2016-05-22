@@ -16,7 +16,7 @@ namespace FPrueba
 
         double[] peso,talla,resultados;// Declaracion 
         string[] personas;
-        int ct=0,ct2=0,ct3=0,numero;
+        int ct=0,numero;
         
         public Form1()
         {
@@ -26,22 +26,9 @@ namespace FPrueba
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Microsoft.Office.Interop.Excel.Application xls = new Microsoft.Office.Interop.Excel.Application();
-            //Workbook wb = xls.Workbooks.Add(XlSheetType.xlWorksheet);
-            //Worksheet ws = (Worksheet)xls.ActiveSheet;
-
-            //xls.Visible = true;
-
-            //for (int i = 0; i <res.Rows.Count-1 ; i++)
-            //{
-            //    for (int j = 0; j <res.Columns.Count; j++)
-            //    {
-            //        if ((res.Rows[i].Cells[j].Value == null) == false)
-            //            ws.Cells[i + 1, j + 1] = res.Rows[i].Cells[j].Value.ToString();
-            //    }
-            //}
+          
             ExportarDataGridViewExcel(res,tabla);
-            //this.Close();
+         
 
         }
         public void ExportarDataGridViewExcel(DataGridView grd, DataGridView inf)
@@ -54,6 +41,7 @@ namespace FPrueba
                 fichero.FileName = "ArchivoExportado";
                 if (fichero.ShowDialog() == DialogResult.OK)
                 {
+                    Cursor = Cursors.AppStarting;
                     Microsoft.Office.Interop.Excel.Application aplicacion;
                     Microsoft.Office.Interop.Excel.Workbook libros_trabajo;
                     Microsoft.Office.Interop.Excel.Worksheet hoja_trabajo;
@@ -105,10 +93,20 @@ namespace FPrueba
                             }
                         }
                     }
-                    libros_trabajo.SaveAs(fichero.FileName,
+                    try
+                    {
+                        libros_trabajo.SaveAs(fichero.FileName,
                         Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
-                    libros_trabajo.Close(true);
-                    aplicacion.Quit();
+                        libros_trabajo.Close(true);
+                        aplicacion.Quit();
+                        MessageBox.Show("Archivo creado con exito","Archivo Excel",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        Cursor = Cursors.Default;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error al crear el archivo","Archivo Excel",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        Cursor = Cursors.Default;
+                    }
                 }
             }
             catch (Exception ex)
@@ -120,7 +118,7 @@ namespace FPrueba
 
         private void Form1_Load(object sender, EventArgs e)
         {
-          //  dgvEjemplo.RowCount = 3;
+        
             enlace.Links.Remove(enlace.Links[0]);
             enlace.Links.Add(0, enlace.Text.Length, "http://www.who.int/mediacentre/factsheets/fs311/es/");
             tabla.RowCount = 2; // cantidad de renglones
@@ -133,26 +131,7 @@ namespace FPrueba
 
         }
 
-        void Insertar(double x, double[] num)
-        {
-           //listBox1.Items.Add(x); // lista visual
-           num[ct] = x;
-           ct++;
-          
-        }
-        void Insertar2(double x, double[] num)
-        {
-           // listBox1.Items.Add(x); // lista visual
-            num[ct2] = x;
-            ct2++;
-
-        }
-
-        void InsertarNombre(string n, string[] nom)
-        {
-            nom[ct3]=n;
-            ct3++;
-        }
+        
         void InsertarDatos(double t, double p, string n, double[] ta, double[] pe, string[] nom)
         {
             ta[ct] = t;
@@ -335,30 +314,19 @@ namespace FPrueba
         private void button5_Click(object sender, EventArgs e)
         {
             
-            ct = 0; ct2 = 0; ct3=0; numero = 0; // reiniciar variables de arreglos
+            ct = 0; numero = 0; // reiniciar variables de arreglos
             Array.Clear(talla, 0, talla.Length); // Limpiar arreglos
             Array.Clear(peso, 0, peso.Length);
             Array.Clear(personas,0,personas.Length);
+            Array.Clear(resultados, 0, resultados.Length);
             numericUpDown1.Enabled = true; textBox1.Enabled = false; textBox2.Enabled = false;
             button3.Enabled = false; button2.Enabled = false; button2.BackColor = Color.Gray;
             numericUpDown1.Focus(); button4.Enabled = true; res.Visible = false; tabla.Visible = false;
             label7.Visible = false; label3.Visible = false; label4.Visible = false; textBox3.Enabled = false;
-            //for (int i = 0; i <= 1; i++)
-            //{
-            //    for (int j = 0; j <= 2; j++) 
-            //    {
-            //        tabla[j, i].Value = "";
-            //    }
-                
-            //}
               
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             button4.BackColor = Color.Gold;
@@ -368,11 +336,6 @@ namespace FPrueba
         {
             ProcessStartInfo sInfo = new ProcessStartInfo(e.Link.LinkData.ToString());
             Process.Start(sInfo);
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
         }
 
     }

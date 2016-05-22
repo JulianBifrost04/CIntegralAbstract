@@ -225,7 +225,7 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Cantidad";
             this.label3.Visible = false;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            
             // 
             // label4
             // 
