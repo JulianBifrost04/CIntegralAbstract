@@ -127,10 +127,10 @@ namespace FPrueba
             textBox1.Enabled = false;
             textBox2.Enabled = false;
             textBox3.Enabled = false;
-            button2.Enabled = false;
-            button3.Enabled = false;
-            pictureBox3.Enabled = false;
-            pictureBox2.Enabled = false;
+            btnCalcular.Enabled = false;
+            btnAñadir.Enabled = false;
+            picReiniciar.Enabled = false;
+            picExportar.Enabled = false;
 
         }
 
@@ -168,7 +168,7 @@ namespace FPrueba
                         textBox3.Focus();
                         if (ct+1==numero)
                         {
-                            button3.BackColor = Color.BurlyWood;
+                            btnAñadir.BackColor = Color.BurlyWood;
                         }
                     }
                     else
@@ -179,10 +179,10 @@ namespace FPrueba
                         textBox1.Enabled = false;
                         textBox2.Enabled = false;
                         textBox3.Enabled = true;
-                        button2.Enabled = true;
-                        button3.Enabled = false;
-                        button2.BackColor = Color.Gold;
-                        button2.Focus();
+                        btnCalcular.Enabled = true;
+                        btnAñadir.Enabled = false;
+                        btnCalcular.BackColor = Color.Gold;
+                        btnCalcular.Focus();
 
                     }
                 }
@@ -202,10 +202,10 @@ namespace FPrueba
             tabla.Visible = true;
             label7.Visible = true;
             label6.Visible = true;
-            pictureBox2.Enabled = true;
-            pictureBox3.Enabled = true;
-            button2.BackColor = DefaultBackColor;
-            button2.Enabled = false;
+            picExportar.Enabled = true;
+            picReiniciar.Enabled = true;
+            btnCalcular.BackColor = DefaultBackColor;
+            btnCalcular.Enabled = false;
            
             res.Visible = true;
             int condelgadezsevera=0,condelgadezmoderada=0,condelgadezaceptable=0, conadecuado=0,  consobrepeso=0 ,  conobesidad = 0, conobesidad2=0,conobesidad3=0;
@@ -324,8 +324,8 @@ namespace FPrueba
             numericUpDown1.Enabled = false;
             textBox1.Enabled = true;
             textBox2.Enabled = true;
-            button4.Enabled = false; button4.BackColor = DefaultBackColor;
-            button3.Enabled = true;
+            btnCrear.Enabled = false; btnCrear.BackColor = DefaultBackColor;
+            btnAñadir.Enabled = true;
             textBox3.Enabled = true;
             textBox3.Focus();
         }
@@ -340,7 +340,7 @@ namespace FPrueba
        
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            button4.BackColor = Color.Gold;
+            btnCrear.BackColor = Color.Gold;
         }
 
         private void enlace_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -351,12 +351,12 @@ namespace FPrueba
 
         private void pictureBox2_MouseEnter(object sender, EventArgs e)
         {
-            pictureBox2.Image = Properties.Resources.logoexcel1;
+            picExportar.Image = Properties.Resources.logoexcel1;
         }
 
         private void pictureBox2_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox2.Image = Properties.Resources.logoexcel;
+            picExportar.Image = Properties.Resources.logoexcel;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -372,20 +372,20 @@ namespace FPrueba
             Array.Clear(personas, 0, personas.Length);
             Array.Clear(resultados, 0, resultados.Length);
             numericUpDown1.Enabled = true; textBox1.Enabled = false; textBox2.Enabled = false;
-            button3.Enabled = false; button2.Enabled = false; button2.BackColor = DefaultBackColor;
-            numericUpDown1.Focus(); button4.Enabled = true; res.Visible = false; tabla.Visible = false;
+            btnAñadir.Enabled = false; btnCalcular.Enabled = false; btnCalcular.BackColor = DefaultBackColor;
+            numericUpDown1.Focus(); btnCrear.Enabled = true; res.Visible = false; tabla.Visible = false;
             label7.Visible = false; label3.Visible = false; label4.Visible = false; textBox3.Enabled = false;
-            pictureBox2.Enabled = false; pictureBox3.Enabled = false;
+            picExportar.Enabled = false; picReiniciar.Enabled = false;
         }
 
         private void pictureBox3_MouseEnter(object sender, EventArgs e)
         {
-            pictureBox3.Image = Properties.Resources.reset2;
+            picReiniciar.Image = Properties.Resources.reset2;
         }
 
         private void pictureBox3_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox3.Image = Properties.Resources.reset1;
+            picReiniciar.Image = Properties.Resources.reset1;
         }
 
         private void textBox1_KeyUp(object sender, KeyEventArgs e)
