@@ -28,7 +28,7 @@ namespace FPrueba
         private void button1_Click(object sender, EventArgs e)
         {
           
-            ExportarDataGridViewExcel(res,tabla);
+            
          
 
         }
@@ -128,8 +128,8 @@ namespace FPrueba
             textBox3.Enabled = false;
             button2.Enabled = false;
             button3.Enabled = false;
-            button5.Enabled = false;
-            button1.Enabled = false;
+            pictureBox3.Enabled = false;
+            pictureBox2.Enabled = false;
 
         }
 
@@ -165,7 +165,10 @@ namespace FPrueba
                         textBox2.Clear();
                         textBox3.Clear();
                         textBox3.Focus();
-
+                        if (ct+1==numero)
+                        {
+                            button3.BackColor = Color.BurlyWood;
+                        }
                     }
                     else
                         MessageBox.Show("El Arreglo esta lleno");
@@ -174,10 +177,12 @@ namespace FPrueba
                     {
                         textBox1.Enabled = false;
                         textBox2.Enabled = false;
+                        textBox3.Enabled = true;
                         button2.Enabled = true;
                         button3.Enabled = false;
                         button2.BackColor = Color.Gold;
                         button2.Focus();
+
                     }
                 }
 
@@ -194,10 +199,13 @@ namespace FPrueba
             label3.Visible = true;
             label4.Visible = true;
             tabla.Visible = true;
-            button5.Enabled = true;
             label7.Visible = true;
             label6.Visible = true;
-            button1.Enabled = true;
+            pictureBox2.Enabled = true;
+            pictureBox3.Enabled = true;
+            button2.BackColor = DefaultBackColor;
+            button2.Enabled = false;
+           
             res.Visible = true;
             int condelgadezsevera=0,condelgadezmoderada=0,condelgadezaceptable=0, conadecuado=0,  consobrepeso=0 ,  conobesidad = 0, conobesidad2=0,conobesidad3=0;
             for (int i = 0; i < resultados.Length; i++)
@@ -308,7 +316,7 @@ namespace FPrueba
             numericUpDown1.Enabled = false;
             textBox1.Enabled = true;
             textBox2.Enabled = true;
-            button4.Enabled = false; button4.BackColor = Color.Gray;
+            button4.Enabled = false; button4.BackColor = DefaultBackColor;
             button3.Enabled = true;
             textBox3.Enabled = true;
             textBox3.Focus();
@@ -317,15 +325,7 @@ namespace FPrueba
         private void button5_Click(object sender, EventArgs e)
         {
             
-            ct = 0; numero = 0; // reiniciar variables de arreglos
-            Array.Clear(talla, 0, talla.Length); // Limpiar arreglos
-            Array.Clear(peso, 0, peso.Length);
-            Array.Clear(personas,0,personas.Length);
-            Array.Clear(resultados, 0, resultados.Length);
-            numericUpDown1.Enabled = true; textBox1.Enabled = false; textBox2.Enabled = false;
-            button3.Enabled = false; button2.Enabled = false; button2.BackColor = Color.Gray;
-            numericUpDown1.Focus(); button4.Enabled = true; res.Visible = false; tabla.Visible = false;
-            label7.Visible = false; label3.Visible = false; label4.Visible = false; textBox3.Enabled = false; button1.Enabled = false;
+           
               
         }
 
@@ -339,6 +339,45 @@ namespace FPrueba
         {
             ProcessStartInfo sInfo = new ProcessStartInfo(e.Link.LinkData.ToString());
             Process.Start(sInfo);
+        }
+
+        private void pictureBox2_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox2.Image = Properties.Resources.logoexcel1;
+        }
+
+        private void pictureBox2_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox2.Image = Properties.Resources.logoexcel;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            ExportarDataGridViewExcel(res, tabla);
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            ct = 0; numero = 0; // reiniciar variables de arreglos
+            Array.Clear(talla, 0, talla.Length); // Limpiar arreglos
+            Array.Clear(peso, 0, peso.Length);
+            Array.Clear(personas, 0, personas.Length);
+            Array.Clear(resultados, 0, resultados.Length);
+            numericUpDown1.Enabled = true; textBox1.Enabled = false; textBox2.Enabled = false;
+            button3.Enabled = false; button2.Enabled = false; button2.BackColor = DefaultBackColor;
+            numericUpDown1.Focus(); button4.Enabled = true; res.Visible = false; tabla.Visible = false;
+            label7.Visible = false; label3.Visible = false; label4.Visible = false; textBox3.Enabled = false;
+            pictureBox2.Enabled = false; pictureBox3.Enabled = false;
+        }
+
+        private void pictureBox3_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox3.Image = Properties.Resources.reset2;
+        }
+
+        private void pictureBox3_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox3.Image = Properties.Resources.reset1;
         }
 
     }
