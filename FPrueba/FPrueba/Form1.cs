@@ -5,15 +5,16 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using Microsoft.Office.Interop.Excel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Microsoft.Office.Interop.Excel;
+
 
 namespace FPrueba
 {
     public partial class Form1 : Form
     {
-
+        Validaciones obj = new Validaciones();
         double[] peso,talla,resultados;// Declaracion 
         string[] personas;
         int ct=0,numero=0;
@@ -144,12 +145,12 @@ namespace FPrueba
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+            //if (textBox1.Text =="" || textBox2.Text == "" || textBox3.Text=="")
             double kg=0 ;
             double estatura=0;
             string nombres="";
-            if (textBox1.Text == " " || textBox2.Text == " " || textBox3.Text==" ")
-                MessageBox.Show("Porfavor ingrese el dato faltante");
+            if (!obj.ValidaTextBoxVacios(this))
+                MessageBox.Show("Porfavor ingrese el dato faltante", "Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             else 
             {
                 try
@@ -236,7 +237,7 @@ namespace FPrueba
                 }
                 if (resultados[i] >= 30 && resultados[i]<=34.99)
                 {
-                    res.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    res.Rows[i].DefaultCellStyle.BackColor = Color.LightSeaGreen;
                     //listBox1.Items.Add( "PESO: " + peso[i] + "Kg |" + " TALLA: " + talla[i] + "mts |" + " IMC: " + resultados[i].ToString("N2"));
                     conobesidad++;
                     res[4, i].Value = "Obesidad";
@@ -251,7 +252,7 @@ namespace FPrueba
                 }
                 if (resultados[i] >= 25 && resultados[i] <= 29.99)
                 {
-                    res.Rows[i].DefaultCellStyle.BackColor = Color.MediumSlateBlue;
+                    res.Rows[i].DefaultCellStyle.BackColor = Color.LightYellow;
                     consobrepeso++;
                     res[4, i].Value = "Sobrepeso";
                     //listBox1.Items.Add(Color.Blue+"PESO:" + peso[i] + "Kg |" + " TALLA: " + talla[i] + "mts |" + " IMC: " + resultados[i].ToString("N2"));
@@ -259,12 +260,12 @@ namespace FPrueba
                 if (resultados[i] >= 35 && resultados[i] <= 40)
                 {
                     conobesidad2++;
-                    res.Rows[i].DefaultCellStyle.BackColor = Color.MediumSlateBlue;
+                    res.Rows[i].DefaultCellStyle.BackColor = Color.OrangeRed;
                     res[4, i].Value = "Obesidad Tipo II";
                 }               
                 if (resultados[i] > 40)
                 {
-                    res.Rows[i].DefaultCellStyle.BackColor = Color.MediumSlateBlue;
+                    res.Rows[i].DefaultCellStyle.BackColor = Color.Red;
                     conobesidad3++;
                     res[4, i].Value = "Obesidad Tipo III";
                 
@@ -299,9 +300,16 @@ namespace FPrueba
             tabla[5, 1].Value = porobesidad.ToString("N1") + "%";
             tabla[6, 1].Value = porot2.ToString("N1") + "%";
             tabla[7, 1].Value = porot3.ToString("N1") + "%";
+
+            tabla.ClearSelection();
+            res.ClearSelection();
            
             if (conobesidad > 0)
-                MessageBox.Show(" Alerta!!!, el Sistema indica que Existen "+conobesidad+" Personas con Obesidad, en la lista aparecen con color ROJO", "IMC",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                MessageBox.Show(" Alerta!!!, el Sistema indica que Existen "+conobesidad+" Persona(s) con Obesidad,\n en la lista aparecen con color Verde", "IMC",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            if (conobesidad2 > 0)
+                MessageBox.Show(" Alerta!!!, el Sistema indica que Existen " + conobesidad2 + " Persona(s) con Obesidad Tipo II,\n en la lista aparecen de Color Naranja", "IMC", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            if (conobesidad3 > 0)
+                MessageBox.Show(" Alerta!!!, el Sistema indica que Existen " + conobesidad3 + " Persona(s) con Obesidad Tipo III,\n en la lista aparecen de Color Rojo", "IMC", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -312,7 +320,7 @@ namespace FPrueba
             personas = new string[numero];
             talla = new double[numero];
             resultados = new double[numero];
-            MessageBox.Show("Sistema Creado de " + numero + " Elementos...");
+            MessageBox.Show("Sistema Creado de " + numero + " Elementos...","IMC",MessageBoxButtons.OK,MessageBoxIcon.Information);
             numericUpDown1.Enabled = false;
             textBox1.Enabled = true;
             textBox2.Enabled = true;
@@ -378,6 +386,16 @@ namespace FPrueba
         private void pictureBox3_MouseLeave(object sender, EventArgs e)
         {
             pictureBox3.Image = Properties.Resources.reset1;
+        }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+           // Validaciones.ValidarDecimal((System.Windows.Forms.TextBox)sender);
+        }
+
+        private void ValidarDecimal(object sender, KeyPressEventArgs e)
+        {
+            obj.Validardecimal(e, (System.Windows.Forms.TextBox)sender);
         }
 
     }
