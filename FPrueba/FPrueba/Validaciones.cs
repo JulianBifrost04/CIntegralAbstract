@@ -9,6 +9,7 @@ namespace FPrueba
 {
     public class Validaciones
     {
+        // ERES UN PUÑAL SERGIO
         // Estamos Probando la inserccion de Clases una de las formas más faciles de agrupar
         public static bool ValidarDecimal(TextBox Caja)
         {
