@@ -398,5 +398,11 @@ namespace FPrueba
             obj.Validardecimal(e, (System.Windows.Forms.TextBox)sender);
         }
 
+        private void pictureBox2_Click_1(object sender, EventArgs e)
+        {
+            FReport n = new FReport();
+            n.Show();
+        }
+
     }
 }

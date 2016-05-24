@@ -93,6 +93,16 @@ namespace FPrueba.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Printer_mirror {
+            get {
+                object obj = ResourceManager.GetObject("Printer_mirror", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap reset1 {
             get {
                 object obj = ResourceManager.GetObject("reset1", resourceCulture);

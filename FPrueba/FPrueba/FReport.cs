@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace FPrueba
 {
-    public partial class FNuevo : Form
+    public partial class FReport : Form
     {
-        public FNuevo()
+        public FReport()
         {
             InitializeComponent();
+        }
+
+        private void FReport_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
         }
     }
 }
