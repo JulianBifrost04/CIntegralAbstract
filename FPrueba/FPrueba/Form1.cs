@@ -5,16 +5,15 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using Microsoft.Office.Interop.Excel;
 using System.Windows.Forms;
 using System.Diagnostics;
-
+using Microsoft.Office.Interop.Excel;
 
 namespace FPrueba
 {
     public partial class Form1 : Form
     {
-        Validaciones obj = new Validaciones();
+
         double[] peso,talla,resultados;// Declaracion 
         string[] personas;
         int ct=0,numero=0;
@@ -23,7 +22,6 @@ namespace FPrueba
         public Form1()
         {
          InitializeComponent();
-         pictureBox1.Parent = this;
        
         }
 
@@ -128,11 +126,10 @@ namespace FPrueba
             textBox1.Enabled = false;
             textBox2.Enabled = false;
             textBox3.Enabled = false;
-            btnCalcular.Enabled = false;
-            btnAñadir.Enabled = false;
-            picReiniciar.Enabled = false;
-            picExportar.Enabled = false;
-            picImprimir.Enabled = false;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            pictureBox3.Enabled = false;
+            pictureBox2.Enabled = false;
 
         }
 
@@ -147,12 +144,12 @@ namespace FPrueba
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //if (textBox1.Text =="" || textBox2.Text == "" || textBox3.Text=="")
+            
             double kg=0 ;
             double estatura=0;
             string nombres="";
-            if (!obj.ValidaTextBoxVacios(this))
-                MessageBox.Show("Porfavor ingrese el dato faltante", "Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            if (textBox1.Text == " " || textBox2.Text == " " || textBox3.Text==" ")
+                MessageBox.Show("Porfavor ingrese el dato faltante");
             else 
             {
                 try
@@ -170,7 +167,7 @@ namespace FPrueba
                         textBox3.Focus();
                         if (ct+1==numero)
                         {
-                            btnAñadir.BackColor = Color.BurlyWood;
+                            button3.BackColor = Color.BurlyWood;
                         }
                     }
                     else
@@ -181,10 +178,10 @@ namespace FPrueba
                         textBox1.Enabled = false;
                         textBox2.Enabled = false;
                         textBox3.Enabled = true;
-                        btnCalcular.Enabled = true;
-                        btnAñadir.Enabled = false;
-                        btnCalcular.BackColor = Color.Gold;
-                        btnCalcular.Focus();
+                        button2.Enabled = true;
+                        button3.Enabled = false;
+                        button2.BackColor = Color.Gold;
+                        button2.Focus();
 
                     }
                 }
@@ -204,11 +201,10 @@ namespace FPrueba
             tabla.Visible = true;
             label7.Visible = true;
             label6.Visible = true;
-            picExportar.Enabled = true;
-            picReiniciar.Enabled = true;
-            picImprimir.Enabled = true;
-            btnCalcular.BackColor = DefaultBackColor;
-            btnCalcular.Enabled = false;
+            pictureBox2.Enabled = true;
+            pictureBox3.Enabled = true;
+            button2.BackColor = DefaultBackColor;
+            button2.Enabled = false;
            
             res.Visible = true;
             int condelgadezsevera=0,condelgadezmoderada=0,condelgadezaceptable=0, conadecuado=0,  consobrepeso=0 ,  conobesidad = 0, conobesidad2=0,conobesidad3=0;
@@ -240,7 +236,7 @@ namespace FPrueba
                 }
                 if (resultados[i] >= 30 && resultados[i]<=34.99)
                 {
-                    res.Rows[i].DefaultCellStyle.BackColor = Color.LightSeaGreen;
+                    res.Rows[i].DefaultCellStyle.BackColor = Color.Red;
                     //listBox1.Items.Add( "PESO: " + peso[i] + "Kg |" + " TALLA: " + talla[i] + "mts |" + " IMC: " + resultados[i].ToString("N2"));
                     conobesidad++;
                     res[4, i].Value = "Obesidad";
@@ -255,7 +251,7 @@ namespace FPrueba
                 }
                 if (resultados[i] >= 25 && resultados[i] <= 29.99)
                 {
-                    res.Rows[i].DefaultCellStyle.BackColor = Color.LightYellow;
+                    res.Rows[i].DefaultCellStyle.BackColor = Color.MediumSlateBlue;
                     consobrepeso++;
                     res[4, i].Value = "Sobrepeso";
                     //listBox1.Items.Add(Color.Blue+"PESO:" + peso[i] + "Kg |" + " TALLA: " + talla[i] + "mts |" + " IMC: " + resultados[i].ToString("N2"));
@@ -263,12 +259,12 @@ namespace FPrueba
                 if (resultados[i] >= 35 && resultados[i] <= 40)
                 {
                     conobesidad2++;
-                    res.Rows[i].DefaultCellStyle.BackColor = Color.OrangeRed;
+                    res.Rows[i].DefaultCellStyle.BackColor = Color.MediumSlateBlue;
                     res[4, i].Value = "Obesidad Tipo II";
                 }               
                 if (resultados[i] > 40)
                 {
-                    res.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    res.Rows[i].DefaultCellStyle.BackColor = Color.MediumSlateBlue;
                     conobesidad3++;
                     res[4, i].Value = "Obesidad Tipo III";
                 
@@ -303,16 +299,9 @@ namespace FPrueba
             tabla[5, 1].Value = porobesidad.ToString("N1") + "%";
             tabla[6, 1].Value = porot2.ToString("N1") + "%";
             tabla[7, 1].Value = porot3.ToString("N1") + "%";
-
-            tabla.ClearSelection();
-            res.ClearSelection();
            
             if (conobesidad > 0)
-                MessageBox.Show(" Alerta!!!, el Sistema indica que Existen "+conobesidad+" Persona(s) con Obesidad,\n en la lista aparecen con color Verde", "IMC",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-            if (conobesidad2 > 0)
-                MessageBox.Show(" Alerta!!!, el Sistema indica que Existen " + conobesidad2 + " Persona(s) con Obesidad Tipo II,\n en la lista aparecen de Color Naranja", "IMC", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            if (conobesidad3 > 0)
-                MessageBox.Show(" Alerta!!!, el Sistema indica que Existen " + conobesidad3 + " Persona(s) con Obesidad Tipo III,\n en la lista aparecen de Color Rojo", "IMC", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(" Alerta!!!, el Sistema indica que Existen "+conobesidad+" Personas con Obesidad, en la lista aparecen con color ROJO", "IMC",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -323,12 +312,12 @@ namespace FPrueba
             personas = new string[numero];
             talla = new double[numero];
             resultados = new double[numero];
-            MessageBox.Show("Sistema Creado de " + numero + " Elementos...","IMC",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("Sistema Creado de " + numero + " Elementos...");
             numericUpDown1.Enabled = false;
             textBox1.Enabled = true;
             textBox2.Enabled = true;
-            btnCrear.Enabled = false; btnCrear.BackColor = DefaultBackColor;
-            btnAñadir.Enabled = true;
+            button4.Enabled = false; button4.BackColor = DefaultBackColor;
+            button3.Enabled = true;
             textBox3.Enabled = true;
             textBox3.Focus();
         }
@@ -343,7 +332,7 @@ namespace FPrueba
        
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            btnCrear.BackColor = Color.Gold;
+            button4.BackColor = Color.Gold;
         }
 
         private void enlace_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -354,12 +343,12 @@ namespace FPrueba
 
         private void pictureBox2_MouseEnter(object sender, EventArgs e)
         {
-            picExportar.Image = Properties.Resources.logoexcel1;
+            pictureBox2.Image = Properties.Resources.logoexcel1;
         }
 
         private void pictureBox2_MouseLeave(object sender, EventArgs e)
         {
-            picExportar.Image = Properties.Resources.logoexcel;
+            pictureBox2.Image = Properties.Resources.logoexcel;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -375,75 +364,20 @@ namespace FPrueba
             Array.Clear(personas, 0, personas.Length);
             Array.Clear(resultados, 0, resultados.Length);
             numericUpDown1.Enabled = true; textBox1.Enabled = false; textBox2.Enabled = false;
-            btnAñadir.Enabled = false; btnCalcular.Enabled = false; btnCalcular.BackColor = DefaultBackColor;
-            numericUpDown1.Focus(); btnCrear.Enabled = true; res.Visible = false; tabla.Visible = false;
+            button3.Enabled = false; button2.Enabled = false; button2.BackColor = DefaultBackColor;
+            numericUpDown1.Focus(); button4.Enabled = true; res.Visible = false; tabla.Visible = false;
             label7.Visible = false; label3.Visible = false; label4.Visible = false; textBox3.Enabled = false;
-            picExportar.Enabled = false; picReiniciar.Enabled = false; picImprimir.Enabled = false;
+            pictureBox2.Enabled = false; pictureBox3.Enabled = false;
         }
 
         private void pictureBox3_MouseEnter(object sender, EventArgs e)
         {
-            picReiniciar.Image = Properties.Resources.reset2;
+            pictureBox3.Image = Properties.Resources.reset2;
         }
 
         private void pictureBox3_MouseLeave(object sender, EventArgs e)
         {
-            picReiniciar.Image = Properties.Resources.reset1;
-        }
-
-        private void textBox1_KeyUp(object sender, KeyEventArgs e)
-        {
-           // Validaciones.ValidarDecimal((System.Windows.Forms.TextBox)sender);
-        }
-
-        private void ValidarDecimal(object sender, KeyPressEventArgs e)
-        {
-            obj.Validardecimal(e, (System.Windows.Forms.TextBox)sender);
-        }
-
-        private void pictureBox2_Click_1(object sender, EventArgs e)
-        {
-            FReport f = new FReport(); // CREAMOS EL OBJETO DEL FORMULARIO DEL REPORTE
-            
-                ClasificacionIMC article = new ClasificacionIMC();
-                //
-                //Vamos tomando los valores de las celdas del row que estamos 
-                //recorriendo actualmente y asignamos su valor a la propiedad de la clase intanciada
-                //
-                article.CantidadDS = Convert.ToInt32(tabla[0, 0].Value);
-                article.CantidadDM = Convert.ToInt32(tabla[1, 0].Value);
-                article.CantidadDA = Convert.ToInt32(tabla[2, 0].Value);
-                article.CantidadPA = Convert.ToInt32(tabla[3, 0].Value);
-                article.CantidadS = Convert.ToInt32(tabla[4, 0].Value);
-                article.CantidadO = Convert.ToInt32(tabla[5, 0].Value);
-                article.CantidadOII = Convert.ToInt32(tabla[6, 0].Value);
-                article.CantidadOIII = Convert.ToInt32(tabla[7, 0].Value);
-            
-                article.PorcentajeDS=Convert.ToString(tabla[0,1].Value);
-                article.PorcentajeDM = Convert.ToString(tabla[1, 1].Value);
-                article.PorcentajeDA = Convert.ToString(tabla[2, 1].Value);
-                article.PorcentajePA = Convert.ToString(tabla[3, 1].Value);
-                article.PorcentajeS = Convert.ToString(tabla[4, 1].Value);
-                article.PorcentajeO = Convert.ToString(tabla[5, 1].Value);
-                article.PorcentajeOII = Convert.ToString(tabla[6, 1].Value);
-                article.PorcentajeOIII = Convert.ToString(tabla[7, 1].Value);
-                
-                f.Detail.Add(article); // AGREGAMOS A LA LISTA
-
-                foreach (DataGridViewRow row in res.Rows)
-                {
-                    DetalleIMC datos = new DetalleIMC();
-                   
-                    datos.Nombre = Convert.ToString(row.Cells["Column12"].Value);
-                    datos.Peso = Convert.ToDouble(row.Cells["Column4"].Value);
-                    datos.Talla = Convert.ToDouble(row.Cells["Column5"].Value);
-                    datos.IMC = Convert.ToDouble(row.Cells["Column6"].Value);
-                    datos.Clasificaciom = Convert.ToString(row.Cells["Column13"].Value);
-                    
-                    f.Datos.Add(datos); // AGREGAMOS A LA LISTA                   
-                }
-
-            f.Show(); // ABRIMOS EL FORMULARIO DONDE ESTA EL REPORTE
+            pictureBox3.Image = Properties.Resources.reset1;
         }
 
     }
