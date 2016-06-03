@@ -23,6 +23,7 @@ namespace FPrueba
         public Form1()
         {
          InitializeComponent();
+         pictureBox1.Parent = this;
        
         }
 
@@ -131,6 +132,7 @@ namespace FPrueba
             btnAñadir.Enabled = false;
             picReiniciar.Enabled = false;
             picExportar.Enabled = false;
+            picImprimir.Enabled = false;
 
         }
 
@@ -204,6 +206,7 @@ namespace FPrueba
             label6.Visible = true;
             picExportar.Enabled = true;
             picReiniciar.Enabled = true;
+            picImprimir.Enabled = true;
             btnCalcular.BackColor = DefaultBackColor;
             btnCalcular.Enabled = false;
            
@@ -375,7 +378,7 @@ namespace FPrueba
             btnAñadir.Enabled = false; btnCalcular.Enabled = false; btnCalcular.BackColor = DefaultBackColor;
             numericUpDown1.Focus(); btnCrear.Enabled = true; res.Visible = false; tabla.Visible = false;
             label7.Visible = false; label3.Visible = false; label4.Visible = false; textBox3.Enabled = false;
-            picExportar.Enabled = false; picReiniciar.Enabled = false;
+            picExportar.Enabled = false; picReiniciar.Enabled = false; picImprimir.Enabled = false;
         }
 
         private void pictureBox3_MouseEnter(object sender, EventArgs e)
@@ -400,8 +403,47 @@ namespace FPrueba
 
         private void pictureBox2_Click_1(object sender, EventArgs e)
         {
-            FReport n = new FReport();
-            n.Show();
+            FReport f = new FReport(); // CREAMOS EL OBJETO DEL FORMULARIO DEL REPORTE
+            
+                ClasificacionIMC article = new ClasificacionIMC();
+                //
+                //Vamos tomando los valores de las celdas del row que estamos 
+                //recorriendo actualmente y asignamos su valor a la propiedad de la clase intanciada
+                //
+                article.CantidadDS = Convert.ToInt32(tabla[0, 0].Value);
+                article.CantidadDM = Convert.ToInt32(tabla[1, 0].Value);
+                article.CantidadDA = Convert.ToInt32(tabla[2, 0].Value);
+                article.CantidadPA = Convert.ToInt32(tabla[3, 0].Value);
+                article.CantidadS = Convert.ToInt32(tabla[4, 0].Value);
+                article.CantidadO = Convert.ToInt32(tabla[5, 0].Value);
+                article.CantidadOII = Convert.ToInt32(tabla[6, 0].Value);
+                article.CantidadOIII = Convert.ToInt32(tabla[7, 0].Value);
+            
+                article.PorcentajeDS=Convert.ToString(tabla[0,1].Value);
+                article.PorcentajeDM = Convert.ToString(tabla[1, 1].Value);
+                article.PorcentajeDA = Convert.ToString(tabla[2, 1].Value);
+                article.PorcentajePA = Convert.ToString(tabla[3, 1].Value);
+                article.PorcentajeS = Convert.ToString(tabla[4, 1].Value);
+                article.PorcentajeO = Convert.ToString(tabla[5, 1].Value);
+                article.PorcentajeOII = Convert.ToString(tabla[6, 1].Value);
+                article.PorcentajeOIII = Convert.ToString(tabla[7, 1].Value);
+                
+                f.Detail.Add(article); // AGREGAMOS A LA LISTA
+
+                foreach (DataGridViewRow row in res.Rows)
+                {
+                    DetalleIMC datos = new DetalleIMC();
+                   
+                    datos.Nombre = Convert.ToString(row.Cells["Column12"].Value);
+                    datos.Peso = Convert.ToDouble(row.Cells["Column4"].Value);
+                    datos.Talla = Convert.ToDouble(row.Cells["Column5"].Value);
+                    datos.IMC = Convert.ToDouble(row.Cells["Column6"].Value);
+                    datos.Clasificaciom = Convert.ToString(row.Cells["Column13"].Value);
+                    
+                    f.Datos.Add(datos); // AGREGAMOS A LA LISTA                   
+                }
+
+            f.Show(); // ABRIMOS EL FORMULARIO DONDE ESTA EL REPORTE
         }
 
     }
