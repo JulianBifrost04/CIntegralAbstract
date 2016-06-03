@@ -65,7 +65,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+          //  this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.picReiniciar = new System.Windows.Forms.PictureBox();
             this.picExportar = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -74,7 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.res)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+           // ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReiniciar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExportar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -435,7 +435,7 @@
             // 
             // pictureBox2
             // 
-            this.picImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+           this.picImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picImprimir.Image = global::FPrueba.Properties.Resources.AirPrint;
             this.picImprimir.Location = new System.Drawing.Point(473, 399);
             this.picImprimir.Name = "picImprimir";
@@ -529,7 +529,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.res)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+           // ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReiniciar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExportar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
