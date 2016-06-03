@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClasificacionIMC.cs" />
+    <Compile Include="DetalleIMC.cs" />
     <Compile Include="FReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,7 +100,11 @@
     </Compile>
     <EmbeddedResource Include="RptIMC.rdlc" />
     <None Include="Properties\DataSources\ClasificacionIMC.datasource" />
+    <None Include="Properties\DataSources\DetalleIMC.datasource" />
     <None Include="Properties\DataSources\Form1.datasource" />
+    <None Include="Properties\DataSources\FReport.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\Validaciones.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -147,6 +152,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Printer_mirror.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AirPrint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Loading.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
