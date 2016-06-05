@@ -22,6 +22,7 @@ namespace FPrueba
         public Form1()
         {
          InitializeComponent();
+         pictureBox1.Parent = this;
        
         }
 
@@ -126,10 +127,11 @@ namespace FPrueba
             textBox1.Enabled = false;
             textBox2.Enabled = false;
             textBox3.Enabled = false;
-            button2.Enabled = false;
-            button3.Enabled = false;
-            pictureBox3.Enabled = false;
-            pictureBox2.Enabled = false;
+            btnCalcular.Enabled = false;
+            btnAñadir.Enabled = false;
+            picReiniciar.Enabled = false;
+            picExportar.Enabled = false;
+            picImprimir.Enabled = false;
 
         }
 
@@ -167,7 +169,7 @@ namespace FPrueba
                         textBox3.Focus();
                         if (ct+1==numero)
                         {
-                            button3.BackColor = Color.BurlyWood;
+                            btnAñadir.BackColor = Color.BurlyWood;
                         }
                     }
                     else
@@ -178,10 +180,10 @@ namespace FPrueba
                         textBox1.Enabled = false;
                         textBox2.Enabled = false;
                         textBox3.Enabled = true;
-                        button2.Enabled = true;
-                        button3.Enabled = false;
-                        button2.BackColor = Color.Gold;
-                        button2.Focus();
+                        btnCalcular.Enabled = true;
+                        btnAñadir.Enabled = false;
+                        btnCalcular.BackColor = Color.Gold;
+                        btnCalcular.Focus();
 
                     }
                 }
@@ -201,10 +203,11 @@ namespace FPrueba
             tabla.Visible = true;
             label7.Visible = true;
             label6.Visible = true;
-            pictureBox2.Enabled = true;
-            pictureBox3.Enabled = true;
-            button2.BackColor = DefaultBackColor;
-            button2.Enabled = false;
+            picExportar.Enabled = true;
+            picReiniciar.Enabled = true;
+            picImprimir.Enabled = true;
+            btnCalcular.BackColor = DefaultBackColor;
+            btnCalcular.Enabled = false;
            
             res.Visible = true;
             int condelgadezsevera=0,condelgadezmoderada=0,condelgadezaceptable=0, conadecuado=0,  consobrepeso=0 ,  conobesidad = 0, conobesidad2=0,conobesidad3=0;
@@ -299,7 +302,7 @@ namespace FPrueba
             tabla[5, 1].Value = porobesidad.ToString("N1") + "%";
             tabla[6, 1].Value = porot2.ToString("N1") + "%";
             tabla[7, 1].Value = porot3.ToString("N1") + "%";
-           
+
             if (conobesidad > 0)
                 MessageBox.Show(" Alerta!!!, el Sistema indica que Existen "+conobesidad+" Personas con Obesidad, en la lista aparecen con color ROJO", "IMC",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
         }
@@ -316,8 +319,8 @@ namespace FPrueba
             numericUpDown1.Enabled = false;
             textBox1.Enabled = true;
             textBox2.Enabled = true;
-            button4.Enabled = false; button4.BackColor = DefaultBackColor;
-            button3.Enabled = true;
+            btnCrear.Enabled = false; btnCrear.BackColor = DefaultBackColor;
+            btnAñadir.Enabled = true;
             textBox3.Enabled = true;
             textBox3.Focus();
         }
@@ -332,7 +335,7 @@ namespace FPrueba
        
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            button4.BackColor = Color.Gold;
+            btnCrear.BackColor = Color.Gold;
         }
 
         private void enlace_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -343,12 +346,12 @@ namespace FPrueba
 
         private void pictureBox2_MouseEnter(object sender, EventArgs e)
         {
-            pictureBox2.Image = Properties.Resources.logoexcel1;
+            picExportar.Image = Properties.Resources.logoexcel1;
         }
 
         private void pictureBox2_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox2.Image = Properties.Resources.logoexcel;
+            picExportar.Image = Properties.Resources.logoexcel;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -364,20 +367,70 @@ namespace FPrueba
             Array.Clear(personas, 0, personas.Length);
             Array.Clear(resultados, 0, resultados.Length);
             numericUpDown1.Enabled = true; textBox1.Enabled = false; textBox2.Enabled = false;
-            button3.Enabled = false; button2.Enabled = false; button2.BackColor = DefaultBackColor;
-            numericUpDown1.Focus(); button4.Enabled = true; res.Visible = false; tabla.Visible = false;
+            btnAñadir.Enabled = false; btnCalcular.Enabled = false; btnCalcular.BackColor = DefaultBackColor;
+            numericUpDown1.Focus(); btnCrear.Enabled = true; res.Visible = false; tabla.Visible = false;
             label7.Visible = false; label3.Visible = false; label4.Visible = false; textBox3.Enabled = false;
-            pictureBox2.Enabled = false; pictureBox3.Enabled = false;
+            picExportar.Enabled = false; picReiniciar.Enabled = false; picImprimir.Enabled = false;
         }
 
         private void pictureBox3_MouseEnter(object sender, EventArgs e)
         {
-            pictureBox3.Image = Properties.Resources.reset2;
+            picReiniciar.Image = Properties.Resources.reset2;
         }
 
         private void pictureBox3_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox3.Image = Properties.Resources.reset1;
+            picReiniciar.Image = Properties.Resources.reset1;
+        }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+           // Validaciones.ValidarDecimal((System.Windows.Forms.TextBox)sender);
+        }
+
+        private void ValidarDecimal(object sender, KeyPressEventArgs e)
+        {
+            //obj.Validardecimal(e, (System.Windows.Forms.TextBox)sender);
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            FReport f = new FReport();
+            foreach (DataGridViewRow row in res.Rows)
+            {
+                DetalleIMC detalle = new DetalleIMC();
+                detalle.Nombre = Convert.ToString(row.Cells["Column12"].Value);
+                detalle.Peso = Convert.ToDouble(row.Cells["Column4"].Value);
+                detalle.Talla = Convert.ToDouble(row.Cells["Column5"].Value);
+                detalle.IMC = Convert.ToDouble(row.Cells["Column6"].Value);
+                detalle.Clasificaciom = Convert.ToString(row.Cells["Column13"].Value);
+
+                f.Datos.Add(detalle);
+            }
+
+            ClasificacionIMC cimc = new ClasificacionIMC();
+            cimc.CantidadDS = Convert.ToInt32(tabla[0,0].Value);
+            cimc.CantidadDM = Convert.ToInt32(tabla[1,0].Value);
+            cimc.CantidadDA = Convert.ToInt32(tabla[2,0].Value);
+            cimc.CantidadPA = Convert.ToInt32(tabla[3,0].Value);
+            cimc.CantidadS = Convert.ToInt32(tabla[4,0].Value);
+            cimc.CantidadO = Convert.ToInt32(tabla[5,0].Value);
+            cimc.CantidadOII = Convert.ToInt32(tabla[6,0].Value);
+            cimc.CantidadOIII = Convert.ToInt32(tabla[7,0].Value);
+            
+            cimc.PorcentajeDS = Convert.ToString(tabla[0,1].Value);
+            cimc.PorcentajeDM = Convert.ToString(tabla[1,1].Value);
+            cimc.PorcentajeDA = Convert.ToString(tabla[2,1].Value);
+            cimc.PorcentajePA = Convert.ToString(tabla[3,1].Value);
+            cimc.PorcentajeS = Convert.ToString(tabla[4,1].Value);
+            cimc.PorcentajeO = Convert.ToString(tabla[5,1].Value);
+            cimc.PorcentajeOII = Convert.ToString(tabla[6,1].Value);
+            cimc.PorcentajeOIII = Convert.ToString(tabla[7, 1].Value);
+
+            f.Clasificacion.Add(cimc);
+            
+            f.Show();
+
         }
 
     }
