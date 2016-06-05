@@ -10,6 +10,7 @@ using System.Diagnostics;
 using Microsoft.Office.Interop.Excel;
 
 namespace FPrueba
+
 {
     public partial class Form1 : Form
     {
@@ -17,7 +18,7 @@ namespace FPrueba
         double[] peso,talla,resultados;// Declaracion 
         string[] personas;
         int ct=0,numero=0;
-
+        Validacion obj = new Validacion();
         
         public Form1()
         {
@@ -390,7 +391,7 @@ namespace FPrueba
 
         private void ValidarDecimal(object sender, KeyPressEventArgs e)
         {
-            //obj.Validardecimal(e, (System.Windows.Forms.TextBox)sender);
+            obj.Validardecimal(e, (System.Windows.Forms.TextBox)sender);
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
@@ -430,6 +431,7 @@ namespace FPrueba
             f.Clasificacion.Add(cimc);
             
             f.Show();
+
 
         }
 
