@@ -47,8 +47,6 @@
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnCalcular = new System.Windows.Forms.Button();
-            this.btnAñadir = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -63,37 +61,45 @@
             this.enlace = new System.Windows.Forms.LinkLabel();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.timGalery = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAñadir = new System.Windows.Forms.PictureBox();
+            this.btnCalcular = new System.Windows.Forms.PictureBox();
+            this.picImprimir = new System.Windows.Forms.PictureBox();
             this.picReiniciar = new System.Windows.Forms.PictureBox();
             this.picExportar = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.picImprimir = new System.Windows.Forms.PictureBox();
+            this.picGalery = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.res)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAñadir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCalcular)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImprimir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReiniciar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExportar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picImprimir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picGalery)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label1.Location = new System.Drawing.Point(27, 81);
+            this.label1.Location = new System.Drawing.Point(57, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 13);
+            this.label1.Size = new System.Drawing.Size(85, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Ingrese el Peso en Kg:";
+            this.label1.Text = "Peso en Kg:";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(186, 78);
+            this.textBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(157, 79);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(78, 20);
+            this.textBox1.Size = new System.Drawing.Size(78, 26);
             this.textBox1.TabIndex = 1;
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidarDecimal);
             // 
@@ -101,19 +107,20 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label2.Location = new System.Drawing.Point(27, 114);
+            this.label2.Location = new System.Drawing.Point(57, 116);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 13);
+            this.label2.Size = new System.Drawing.Size(84, 20);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Ingrese la Talla en Mts:";
+            this.label2.Text = "Talla en Mts:";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(186, 111);
+            this.textBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(156, 114);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(78, 20);
+            this.textBox2.Size = new System.Drawing.Size(78, 26);
             this.textBox2.TabIndex = 2;
             this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidarDecimal);
             // 
@@ -153,7 +160,7 @@
             this.tabla.DefaultCellStyle = dataGridViewCellStyle5;
             this.tabla.EnableHeadersVisualStyles = false;
             this.tabla.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tabla.Location = new System.Drawing.Point(115, 195);
+            this.tabla.Location = new System.Drawing.Point(110, 278);
             this.tabla.Name = "tabla";
             this.tabla.ReadOnly = true;
             this.tabla.RowHeadersVisible = false;
@@ -215,7 +222,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label3.Location = new System.Drawing.Point(30, 229);
+            this.label3.Location = new System.Drawing.Point(25, 312);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 6;
@@ -228,43 +235,18 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label4.Location = new System.Drawing.Point(30, 254);
+            this.label4.Location = new System.Drawing.Point(25, 337);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Porcentaje ";
             this.label4.Visible = false;
             // 
-            // btnCalcular
-            // 
-            this.btnCalcular.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCalcular.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalcular.Location = new System.Drawing.Point(29, 145);
-            this.btnCalcular.Name = "btnCalcular";
-            this.btnCalcular.Size = new System.Drawing.Size(339, 40);
-            this.btnCalcular.TabIndex = 8;
-            this.btnCalcular.Text = "Calcular IMC";
-            this.btnCalcular.UseVisualStyleBackColor = true;
-            this.btnCalcular.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnAñadir
-            // 
-            this.btnAñadir.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAñadir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAñadir.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAñadir.Location = new System.Drawing.Point(281, 78);
-            this.btnAñadir.Name = "btnAñadir";
-            this.btnAñadir.Size = new System.Drawing.Size(87, 53);
-            this.btnAñadir.TabIndex = 3;
-            this.btnAñadir.Text = "Añadir\r\n*";
-            this.btnAñadir.UseVisualStyleBackColor = false;
-            this.btnAñadir.Click += new System.EventHandler(this.button3_Click);
-            // 
             // btnCrear
             // 
             this.btnCrear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCrear.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrear.Location = new System.Drawing.Point(293, 16);
+            this.btnCrear.Location = new System.Drawing.Point(293, 18);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(75, 23);
             this.btnCrear.TabIndex = 11;
@@ -276,18 +258,18 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.AliceBlue;
             this.label5.Location = new System.Drawing.Point(27, 18);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(192, 13);
+            this.label5.Size = new System.Drawing.Size(208, 20);
             this.label5.TabIndex = 13;
             this.label5.Text = "Ingrese la Cantidad de personas:";
             // 
             // numericUpDown1
             // 
             this.numericUpDown1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.numericUpDown1.Location = new System.Drawing.Point(235, 16);
+            this.numericUpDown1.Location = new System.Drawing.Point(241, 19);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(40, 20);
             this.numericUpDown1.TabIndex = 14;
@@ -299,7 +281,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(31, 307);
+            this.label6.Location = new System.Drawing.Point(26, 390);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 39);
             this.label6.TabIndex = 15;
@@ -312,7 +294,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label7.Location = new System.Drawing.Point(31, 203);
+            this.label7.Location = new System.Drawing.Point(26, 286);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(76, 13);
             this.label7.TabIndex = 17;
@@ -341,7 +323,7 @@
             this.Column6,
             this.Column13});
             this.res.EnableHeadersVisualStyles = false;
-            this.res.Location = new System.Drawing.Point(115, 279);
+            this.res.Location = new System.Drawing.Point(110, 362);
             this.res.Name = "res";
             this.res.ReadOnly = true;
             this.res.RowHeadersVisible = false;
@@ -385,7 +367,7 @@
             this.enlace.AutoSize = true;
             this.enlace.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enlace.LinkColor = System.Drawing.Color.White;
-            this.enlace.Location = new System.Drawing.Point(690, 434);
+            this.enlace.Location = new System.Drawing.Point(685, 517);
             this.enlace.Name = "enlace";
             this.enlace.Size = new System.Drawing.Size(165, 19);
             this.enlace.TabIndex = 21;
@@ -397,26 +379,90 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.AliceBlue;
             this.label8.Location = new System.Drawing.Point(27, 50);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(114, 13);
+            this.label8.Size = new System.Drawing.Size(61, 20);
             this.label8.TabIndex = 22;
-            this.label8.Text = "Ingrese el Nombre:";
+            this.label8.Text = "Nombre:";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(147, 47);
+            this.textBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(94, 47);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(221, 20);
+            this.textBox3.Size = new System.Drawing.Size(274, 26);
             this.textBox3.TabIndex = 0;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutomaticDelay = 100;
+            this.toolTip1.AutoPopDelay = 3000;
+            this.toolTip1.InitialDelay = 100;
+            this.toolTip1.ReshowDelay = 20;
+            // 
+            // timGalery
+            // 
+            this.timGalery.Interval = 1000;
+            this.timGalery.Tick += new System.EventHandler(this.timGalery_Tick);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::FPrueba.Properties.Resources.PropiedadIMC;
+            this.pictureBox1.Location = new System.Drawing.Point(28, 146);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(216, 126);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 30;
+            this.pictureBox1.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox1, "Clic para Calcular IMC");
+            // 
+            // btnAñadir
+            // 
+            this.btnAñadir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAñadir.Image = global::FPrueba.Properties.Resources.AñadirPersona;
+            this.btnAñadir.Location = new System.Drawing.Point(276, 79);
+            this.btnAñadir.Name = "btnAñadir";
+            this.btnAñadir.Size = new System.Drawing.Size(75, 61);
+            this.btnAñadir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnAñadir.TabIndex = 29;
+            this.btnAñadir.TabStop = false;
+            this.toolTip1.SetToolTip(this.btnAñadir, "Añadir al listado");
+            this.btnAñadir.Click += new System.EventHandler(this.pictureBox2_Click_2);
+            // 
+            // btnCalcular
+            // 
+            this.btnCalcular.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCalcular.Image = global::FPrueba.Properties.Resources.Calcular1;
+            this.btnCalcular.Location = new System.Drawing.Point(250, 146);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.Size = new System.Drawing.Size(118, 126);
+            this.btnCalcular.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCalcular.TabIndex = 28;
+            this.btnCalcular.TabStop = false;
+            this.toolTip1.SetToolTip(this.btnCalcular, "Clic para Calcular IMC");
+            this.btnCalcular.Click += new System.EventHandler(this.pictureBox2_Click_1);
+            // 
+            // picImprimir
+            // 
+            this.picImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picImprimir.Image = global::FPrueba.Properties.Resources.AirPrint;
+            this.picImprimir.Location = new System.Drawing.Point(528, 489);
+            this.picImprimir.Name = "picImprimir";
+            this.picImprimir.Size = new System.Drawing.Size(50, 50);
+            this.picImprimir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picImprimir.TabIndex = 27;
+            this.picImprimir.TabStop = false;
+            this.toolTip1.SetToolTip(this.picImprimir, "Exportar(Clic para Guardar en Excel)");
+            this.picImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // picReiniciar
             // 
             this.picReiniciar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picReiniciar.Image = global::FPrueba.Properties.Resources.reset1;
-            this.picReiniciar.Location = new System.Drawing.Point(397, 406);
+            this.picReiniciar.Location = new System.Drawing.Point(392, 489);
             this.picReiniciar.Name = "picReiniciar";
             this.picReiniciar.Size = new System.Drawing.Size(50, 50);
             this.picReiniciar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -431,7 +477,7 @@
             // 
             this.picExportar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picExportar.Image = global::FPrueba.Properties.Resources.logoexcel;
-            this.picExportar.Location = new System.Drawing.Point(465, 406);
+            this.picExportar.Location = new System.Drawing.Point(460, 489);
             this.picExportar.Name = "picExportar";
             this.picExportar.Size = new System.Drawing.Size(50, 50);
             this.picExportar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -442,46 +488,30 @@
             this.picExportar.MouseEnter += new System.EventHandler(this.pictureBox2_MouseEnter);
             this.picExportar.MouseLeave += new System.EventHandler(this.pictureBox2_MouseLeave);
             // 
-            // pictureBox1
+            // picGalery
             // 
-            this.pictureBox1.Image = global::FPrueba.Properties.Resources.Clasificacion_IMC;
-            this.pictureBox1.Location = new System.Drawing.Point(381, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(474, 171);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 24;
-            this.pictureBox1.TabStop = false;
-            // 
-            // toolTip1
-            // 
-            this.toolTip1.AutomaticDelay = 100;
-            this.toolTip1.AutoPopDelay = 3000;
-            this.toolTip1.InitialDelay = 100;
-            this.toolTip1.ReshowDelay = 20;
-            // 
-            // picImprimir
-            // 
-            this.picImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picImprimir.Image = global::FPrueba.Properties.Resources.AirPrint;
-            this.picImprimir.Location = new System.Drawing.Point(533, 406);
-            this.picImprimir.Name = "picImprimir";
-            this.picImprimir.Size = new System.Drawing.Size(50, 50);
-            this.picImprimir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picImprimir.TabIndex = 27;
-            this.picImprimir.TabStop = false;
-            this.toolTip1.SetToolTip(this.picImprimir, "Exportar(Clic para Guardar en Excel)");
-            this.picImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            this.picGalery.Image = global::FPrueba.Properties.Resources.familiasaludable;
+            this.picGalery.Location = new System.Drawing.Point(392, 16);
+            this.picGalery.Name = "picGalery";
+            this.picGalery.Size = new System.Drawing.Size(458, 256);
+            this.picGalery.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picGalery.TabIndex = 24;
+            this.picGalery.TabStop = false;
+            this.picGalery.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(882, 462);
+            this.ClientSize = new System.Drawing.Size(882, 553);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btnAñadir);
+            this.Controls.Add(this.btnCalcular);
             this.Controls.Add(this.picImprimir);
             this.Controls.Add(this.picReiniciar);
             this.Controls.Add(this.picExportar);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picGalery);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.enlace);
@@ -491,8 +521,6 @@
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnCrear);
-            this.Controls.Add(this.btnAñadir);
-            this.Controls.Add(this.btnCalcular);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tabla);
@@ -505,14 +533,18 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Índice de Masa Corporal (Organización Mundial de la Salud)";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.res)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAñadir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCalcular)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImprimir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReiniciar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExportar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picImprimir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picGalery)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -527,8 +559,6 @@
         private System.Windows.Forms.DataGridView tabla;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnCalcular;
-        private System.Windows.Forms.Button btnAñadir;
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
@@ -551,11 +581,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picGalery;
         private System.Windows.Forms.PictureBox picExportar;
         private System.Windows.Forms.PictureBox picReiniciar;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PictureBox picImprimir;
+        private System.Windows.Forms.PictureBox btnCalcular;
+        private System.Windows.Forms.PictureBox btnAñadir;
+        private System.Windows.Forms.Timer timGalery;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
