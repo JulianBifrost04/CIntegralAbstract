@@ -73,9 +73,59 @@ namespace FPrueba.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AñadirPersona {
+            get {
+                object obj = ResourceManager.GetObject("AñadirPersona", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Calcular1 {
+            get {
+                object obj = ResourceManager.GetObject("Calcular1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Clasificacion_IMC {
             get {
                 object obj = ResourceManager.GetObject("Clasificacion_IMC", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cover_Session_71 {
+            get {
+                object obj = ResourceManager.GetObject("Cover_Session_71", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap familiadietac {
+            get {
+                object obj = ResourceManager.GetObject("familiadietac", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap familiasaludable {
+            get {
+                object obj = ResourceManager.GetObject("familiasaludable", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +166,16 @@ namespace FPrueba.Properties {
         internal static System.Drawing.Bitmap Printer_mirror {
             get {
                 object obj = ResourceManager.GetObject("Printer_mirror", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PropiedadIMC {
+            get {
+                object obj = ResourceManager.GetObject("PropiedadIMC", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
