@@ -176,13 +176,7 @@ namespace FPrueba
             textBox3.Focus();
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            
-           
-              
-        }
-
+        
        
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
@@ -484,6 +478,89 @@ namespace FPrueba
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             timGalery.Stop();
+        }
+
+        bool Buscar(string TextoABuscar, string Columna, DataGridView grid)
+        {
+            bool encontrado = false;
+            if (TextoABuscar == string.Empty) return false;
+            if (grid.RowCount == 0) return false;
+            grid.ClearSelection();
+            if (Columna == string.Empty)
+            {
+                foreach (DataGridViewRow row in grid.Rows)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                        if (cell.Value.ToString() == TextoABuscar)
+                        {
+                            row.Selected = true;
+                            return true;
+                        }
+                }
+            }
+            else
+            {
+                foreach (DataGridViewRow row in grid.Rows)
+                {
+
+                    if (row.Cells[Columna].Value.ToString().Contains(TextoABuscar))
+                    {
+                        
+                        row.Selected = true;
+                        //listBox1.Items[1]=(row.Cells[Columna].Value.ToString());
+                        //listBox1.SelectedItem[2]=
+                        return true;
+                    }
+                  
+                }
+            }
+            return encontrado;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Buscar(textBox4.Text, "Column12", res);
+        }
+
+        bool BuscarLINQ(string TextoABuscar, string Columna, DataGridView grid)
+        {
+            bool encontrado = false;
+            if (TextoABuscar == string.Empty) return false;
+            if (grid.RowCount == 0) return false;
+            grid.ClearSelection();
+            if (Columna == string.Empty)
+            {
+                IEnumerable<DataGridViewRow> obj = (from DataGridViewRow row in grid.Rows.Cast<DataGridViewRow>()
+                                                    from DataGridViewCell cells in row.Cells
+                                                    where cells.OwningRow.Equals(row) && cells.Value.ToString() == TextoABuscar
+                                                    select row);
+                if (obj.Any())
+                {
+                    grid.Rows[obj.FirstOrDefault().Index].Selected = true;
+                    return true;
+                }
+
+            }
+            else
+            {
+                IEnumerable<DataGridViewRow> obj = (from DataGridViewRow row in grid.Rows.Cast<DataGridViewRow>()
+                                                    where row.Cells[Columna].Value.ToString() == TextoABuscar
+                                                    select row);
+                if (obj.Any())
+                {
+                    grid.Rows[obj.FirstOrDefault().Index].Selected = true;
+                    return true;
+                }
+
+            }
+            return encontrado;
+
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            Buscar(textBox4.Text, "Column12", res);
         }
 
     }
