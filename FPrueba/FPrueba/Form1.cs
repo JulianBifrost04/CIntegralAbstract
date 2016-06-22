@@ -124,7 +124,7 @@ namespace FPrueba
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            timGalery.Start();
+            //timGalery.Start();
             enlace.Links.Remove(enlace.Links[0]);
             enlace.Links.Add(0, enlace.Text.Length, "http://www.who.int/mediacentre/factsheets/fs311/es/");
             tabla.RowCount = 2; // cantidad de renglones
@@ -417,18 +417,12 @@ namespace FPrueba
                         estatura = double.Parse(textBox2.Text);
                         nombres = textBox3.Text;
                         InsertarDatos(estatura, kg, nombres, talla, peso, personas);
-                        textBox1.Clear();
-                        textBox2.Clear();
-                        textBox3.Clear();
-                        textBox3.Focus();
+                        textBox1.Clear(); textBox2.Clear(); textBox3.Clear(); textBox3.Focus();
                         if (ct + 1 == numero)
-                        {
-                            btnAñadir.BackColor = Color.BurlyWood;
-                        }
+                            btnAñadir.BackColor = Color.White;
                     }
                     else
                         MessageBox.Show("El Arreglo esta lleno");
-
                     if (ct == numero)
                     {
                         textBox1.Enabled = false;
@@ -436,9 +430,8 @@ namespace FPrueba
                         textBox3.Enabled = true;
                         btnCalcular.Enabled = true;
                         btnAñadir.Enabled = false;
-                        btnCalcular.BackColor = Color.Gold;
+                        btnCalcular.BackColor = Color.FromArgb(31, 118, 195);
                         btnCalcular.Focus();
-
                     }
                 }
 
@@ -569,6 +562,11 @@ namespace FPrueba
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
             Buscar(textBox4.Text, "Column12", res);
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
