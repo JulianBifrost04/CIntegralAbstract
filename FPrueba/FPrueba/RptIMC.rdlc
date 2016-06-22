@@ -2,6 +2,19 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
+      <Rectangle Name="Rectangle1">
+        <KeepTogether>true</KeepTogether>
+        <Top>0.82655cm</Top>
+        <Left>11.22131cm</Left>
+        <Height>0.35688cm</Height>
+        <Width>3.47699cm</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <BackgroundColor>CornflowerBlue</BackgroundColor>
+        </Style>
+      </Rectangle>
       <Textbox Name="Textbox1">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -25,10 +38,12 @@
         <Left>4.62231cm</Left>
         <Height>0.6cm</Height>
         <Width>6.599cm</Width>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
           </Border>
+          <BackgroundColor>White</BackgroundColor>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -928,7 +943,7 @@
         <Left>0.81213cm</Left>
         <Height>1.8cm</Height>
         <Width>14.0836cm</Width>
-        <ZIndex>1</ZIndex>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1321,7 +1336,7 @@
         <Left>0.81213cm</Left>
         <Height>1.2cm</Height>
         <Width>14.0836cm</Width>
-        <ZIndex>2</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1333,10 +1348,10 @@
         <Left>0.81213cm</Left>
         <Height>0cm</Height>
         <Width>14.0836cm</Width>
-        <ZIndex>3</ZIndex>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
-            <Style>Dashed</Style>
+            <Style>Dotted</Style>
           </Border>
         </Style>
       </Line>
@@ -1361,7 +1376,7 @@
         <Left>12.40846cm</Left>
         <Height>0.6cm</Height>
         <Width>2.46623cm</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1393,7 +1408,7 @@
         <Left>11.12554cm</Left>
         <Height>0.6cm</Height>
         <Width>1.28292cm</Width>
-        <ZIndex>5</ZIndex>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1404,14 +1419,28 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Rectangle Name="Rectangle2">
+        <KeepTogether>true</KeepTogether>
+        <Top>0.82655cm</Top>
+        <Left>1.14532cm</Left>
+        <Height>0.35688cm</Height>
+        <Width>3.47699cm</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <BackgroundColor>CornflowerBlue</BackgroundColor>
+        </Style>
+      </Rectangle>
     </ReportItems>
-    <Height>3.86458in</Height>
+    <Height>3.9562in</Height>
     <Style />
   </Body>
-  <Width>6.19691in</Width>
+  <Width>6.12399in</Width>
   <Page>
     <PageHeader>
-      <Height>3.00495cm</Height>
+      <Height>2.3756cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1436,7 +1465,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0.55245cm</Top>
+          <Top>0.23495cm</Top>
           <Left>6.59379cm</Left>
           <Height>1.72296cm</Height>
           <Width>3.55833cm</Width>
@@ -1454,8 +1483,8 @@
           <Source>Embedded</Source>
           <Value>logo_SecretariaSalud2</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.58773cm</Top>
-          <Left>0.43431cm</Left>
+          <Top>0.3175cm</Top>
+          <Left>0.11681cm</Left>
           <Height>2.0581cm</Height>
           <Width>5.98309cm</Width>
           <ZIndex>1</ZIndex>
@@ -1469,7 +1498,7 @@
           <Source>Embedded</Source>
           <Value>oms1</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.58773cm</Top>
+          <Top>0.27023cm</Top>
           <Left>13.08365cm</Left>
           <Height>2.0581cm</Height>
           <Width>1.79104cm</Width>

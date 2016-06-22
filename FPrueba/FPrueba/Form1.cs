@@ -206,16 +206,24 @@ namespace FPrueba
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            ct = 0; numero = 0; // reiniciar variables de arreglos
-            Array.Clear(talla, 0, talla.Length); // Limpiar arreglos
-            Array.Clear(peso, 0, peso.Length);
-            Array.Clear(personas, 0, personas.Length);
-            Array.Clear(resultados, 0, resultados.Length);
-            numericUpDown1.Enabled = true; textBox1.Enabled = false; textBox2.Enabled = false;
-            btnAñadir.Enabled = false; btnCalcular.Enabled = false; btnCalcular.BackColor = Color.Transparent;
-            numericUpDown1.Focus(); btnCrear.Enabled = true; res.Visible = false; tabla.Visible = false;
-            label7.Visible = false; label3.Visible = false; label4.Visible = false; textBox3.Enabled = false;
-            picExportar.Enabled = false; picReiniciar.Enabled = false; picImprimir.Enabled = false;
+            DialogResult ok;
+
+            ok = MessageBox.Show("¿De Verdad desea eliminar los datos?, si es así presione en Sí, tome en cuenta que los datos se perderan, se le aconseja que los exporte o los imprima previamente. Para cancelar de clic en No","Limpieza de Datos",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+
+            if (ok==DialogResult.Yes)
+            {
+                ct = 0; numero = 0; // reiniciar variables de arreglos
+                Array.Clear(talla, 0, talla.Length); // Limpiar arreglos
+                Array.Clear(peso, 0, peso.Length);
+                Array.Clear(personas, 0, personas.Length);
+                Array.Clear(resultados, 0, resultados.Length);
+                numericUpDown1.Enabled = true; textBox1.Enabled = false; textBox2.Enabled = false;
+                btnAñadir.Enabled = false; btnCalcular.Enabled = false; btnCalcular.BackColor = Color.Transparent;
+                numericUpDown1.Focus(); btnCrear.Enabled = true; res.Visible = false; tabla.Visible = false;
+                label7.Visible = false; label3.Visible = false; label4.Visible = false; textBox3.Enabled = false;
+                picExportar.Enabled = false; picReiniciar.Enabled = false; picImprimir.Enabled = false;   
+            }
+            
         }
 
         private void pictureBox3_MouseEnter(object sender, EventArgs e)
